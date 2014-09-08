@@ -1,0 +1,12 @@
+{
+	"name": "train-routes",
+	"description": "Displays where the trains are for UTA",
+	"version":"0.0.1",
+	"private": true,
+	"dependencies" :{
+		"express":"4.8.8",
+		"xml2js" : "0.4.4",
+		"request" : "2.42.0",
+		"q" : "1.0.1"
+	}
+}

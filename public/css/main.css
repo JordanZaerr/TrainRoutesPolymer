@@ -1,0 +1,13 @@
+    html,body {
+      margin: 0;
+      background-color: #E5E5E5;
+    }
+    paper-tabs{
+      width: 700px;
+      margin:0;
+      text-transform: uppercase;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }

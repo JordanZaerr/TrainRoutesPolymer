@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <title>Train Routes</title>
+
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+  <script src="bower_components/platform/platform.js"></script>
+  <link rel="import" href="bower_components/paper-tabs/paper-tabs.html"/>
+  <link rel="import" href="train-route.html"/>
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+
+<body unresolved>
+
+<train-route>
+  <div>
+  <paper-tabs id="tabs" valueattr='route' selected="703" self-end>
+    <paper-tab route="703">Red Line</paper-tab>
+    <paper-tab route="701">Blue Line</paper-tab>
+    <paper-tab route="704">Green Line</paper-tab>
+    <paper-tab route="720">S Line Street Car</paper-tab>
+    <paper-tab route="-1">All Lines</paper-tab>
+  </paper-tabs>
+</div>
+</train-route>
+
+<script>
+  var route = document.querySelector('train-route');
+  var tabs = document.querySelector('paper-tabs');
+  tabs.addEventListener('core-select', function() {
+    route.routeNumber = tabs.selected;
+  });
+</script>
+</body>
+</html>

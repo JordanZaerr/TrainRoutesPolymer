@@ -1,0 +1,35 @@
+<link rel="import" href="bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="train-service" attributes="trainData routeNumber">
+  <template>
+    <style>
+    :host {
+      display: none;
+    }
+    </style>
+
+ <core-ajax 
+    id="ajax"
+    auto
+    url="http://localhost:3000/route?number={{routeNumber}}"
+    on-core-response="{{dataLoaded}}"
+    handleAs="json">
+  </core-ajax>
+  </template>
+  <script>
+  Polymer('train-service', {
+    created: function() {
+      this.trains = [];
+    },
+    dataLoaded: function() {
+      this.trainData = this.$.ajax.response.slice(0);
+    },
+    getData: function(){
+      this.$.ajax.go();
+    },
+    routeNumberChanged: function(){
+      this.fire('route-updated', this.routeNumber);
+    }
+  });
+  </script>
+</polymer-element>
