@@ -19,5 +19,5 @@ Steps to get running
 Steps to debug
 --------------
 - Have node inspector installed ```npm install -g node-inspector```
-- Run ```node-debug server.js``` This will launch the debugger site in your browser. This only works in a webkit browser, chrome or safari. If you default        browser isn't one of these then copy the url into one of those browsers.
+- Run ```node-debug server.js``` This will launch the debugger site in your browser. This only works in a webkit browser, chrome or safari. If your default        browser isn't one of these then copy the url into one of those browsers.
 - Navigate to http:\\\\localhost:3000 in your browser.
