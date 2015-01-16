@@ -7,6 +7,7 @@ var express = require("express"),
 	imageMap = {"701":"img/blue.png", "703":"img/red.png", "704":"img/green.png", "720":"img/purple.png"},
 	app = express();
 
+app.set('port', (process.env.PORT || 3000));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/route', function(req,res){
@@ -46,6 +47,7 @@ function getTrainData(routeNum){
 					return;
 				}
 				var trains = result.Siri.VehicleMonitoringDelivery[0].VehicleActivity[0].MonitoredVehicleJourney;
+				if(!trains) return;
 				trains.forEach(function(train){
 					trainData.push({
 						"direction" : train.DirectionRef[0].toLowerCase(),
@@ -61,6 +63,6 @@ function getTrainData(routeNum){
 	return deferred.promise;
 };
 
-var server = app. listen(3000, function(){
+var server = app.listen(app.get('port'), function(){
 	console.log('Listening on port %d', server.address().port);
 });
